@@ -21,7 +21,7 @@ class ShowProductService {
 
     const productExists = await productRepositorys.findByName(name);
     
-    if(productExists !== undefined){
+    if(productExists !== undefined && name !== product.name){
       throw new AppError("There is already one product with this name");
     }
 
