@@ -4,7 +4,7 @@
   "port" : "2222",
   "username" : "postgres",
   "password" : "postgres",
-  "database" : "apivendas",
+  "database" : "APIVENDAS",
   "entities" : ["./src/modules/**/typeorm/entities/*.ts"],
   "migrations" : [
     "./src/shared/typeorm/migrations/*.ts"
