@@ -7,6 +7,7 @@ import { promises } from 'dns';
 import { Repository } from 'typeorm';
 import UpdateProductService from "../services/UpdateProductService";
 import DeleteProductService from "../services/DeleteProductService";
+import { STATUS_CODES } from "http";
 
 
 export default class ProductsController{
@@ -38,7 +39,7 @@ export default class ProductsController{
     });
 
 
-    return res.json(product);
+    return res.status(201).json(product);
   }
 
   public async update(req:Request, res: Response): Promise<Response>{
