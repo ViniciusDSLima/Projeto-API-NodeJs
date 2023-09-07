@@ -3,11 +3,14 @@ import { celebrate, Joi, Segments } from "celebrate";
 import UsersController from "../controllers/UsersController";
 import { join } from "path";
 import exp from "constants";
+import isAuthenticated from "../middlewares/isAuthenticated";
 
 
 const usersRouter = Router();
 const usersController = new UsersController();
-
+//necessita estar autenticado!!
+usersRouter.get("/", isAuthenticated, usersController.index);
+//nao necessita estar autenticado!!
 usersRouter.post(
     "/",
     celebrate({
