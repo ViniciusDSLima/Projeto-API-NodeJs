@@ -1,4 +1,4 @@
-import { ObjectId, getCustomRepository } from "typeorm";
+import { getCustomRepository } from "typeorm";
 import { ProductRepository } from "../typeorm/repositories/ProductsRepositoy";
 import Product from "../typeorm/entities/Product";
 import AppError from '../../../shared/errors/AppError';
@@ -11,7 +11,7 @@ class ShowProductService {
   public async execute(id: IRepository): Promise<Product | null>{
     const productRepositorys = getCustomRepository(ProductRepository);
     
-    const product = await productRepositorys.findOneBy(id);
+    const product = await productRepositorys.findOne(id);
 
     if(!product){
       throw new AppError("Product Not found");
