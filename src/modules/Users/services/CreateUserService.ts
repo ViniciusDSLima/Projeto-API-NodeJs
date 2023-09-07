@@ -2,6 +2,8 @@ import User from "../typeorm/entities/Users";
 import AppError from "@shared/errors/AppError";
 import {getCustomRepository} from 'typeorm';
 import UsersRepository from "../typeorm/repositories/UsersRepository";
+import { hasSubscribers } from "diagnostics_channel";
+import { hash } from "bcryptjs";
 
 interface IRequest{
   name: string;
@@ -18,8 +20,10 @@ class CreateUserService {
         throw new AppError("Email address alread used.");
     }
 
+    const hashedPassword = await hash(password, 8);
+    
     const user = usersRepository.create({
-        name, email, password
+        name, email, password: hashedPassword
     });
 
     await usersRepository.save(user);
