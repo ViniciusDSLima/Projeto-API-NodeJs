@@ -3,7 +3,7 @@ import { celebrate, Joi, Segments } from "celebrate";
 import UsersController from "../controllers/UsersController";
 import { join } from "path";
 import exp from "constants";
-import isAuthenticated from "../middlewares/isAuthenticated";
+import isAuthenticated from "../../../shared/http/middlewares/isAuthenticated";
 
 
 const usersRouter = Router();
