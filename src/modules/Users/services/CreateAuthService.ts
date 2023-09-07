@@ -2,8 +2,8 @@ import User from "../typeorm/entities/Users";
 import AppError from "@shared/errors/AppError";
 import {getCustomRepository} from 'typeorm';
 import UsersRepository from "../typeorm/repositories/UsersRepository";
-import { hasSubscribers } from "diagnostics_channel";
 import { compare, hash } from "bcryptjs";
+import { sign } from "jsonwebtoken";
 
 interface IRequest{
   email: string;
@@ -12,6 +12,7 @@ interface IRequest{
 
 interface IResponse{
     user: User,
+    token: string;
 }
 
 class CreateAuthService {
@@ -29,7 +30,12 @@ class CreateAuthService {
         throw new AppError("Incorrect email/password combination ", 401);
     }
 
-    return user;
+    const token = sign({}, "	3634340d2ef2d20092a115487eeacf4f4f431cf9", {
+      subject: user.id,
+      expiresIn: '1d',
+    })
+
+    return {user, token};
   }
 }
 
