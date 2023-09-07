@@ -1,16 +1,16 @@
-import { Request, Response } from "express";
-import UpdateUserAvatarService from "../services/UpdateUserAvatarService";
+import { Request, Response } from 'express';
+import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 
-export default class UserAvatarController{
-    
-    public async update(req: Request, res: Response): Promise<Response | undefined>{
-        const updateAvatar = new UpdateUserAvatarService();
 
-        const user = updateAvatar.execute({
-            user_id : req.user.id,
-            avatarFilename : req.file?.filename
-        });
+export default class UserAvatarController {
+  public async update(request: Request, response: Response): Promise<Response | undefined> {
+    const updateAvatar = new UpdateUserAvatarService();
 
-        return res.json(user);
-    }
+    const user = updateAvatar.execute({
+      user_id: request.user.id,
+      avatarFilename: request.file?.filename,
+    });
+
+    return response.json(user);
+  }
 }
