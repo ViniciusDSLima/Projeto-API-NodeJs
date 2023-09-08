@@ -2,6 +2,7 @@ import AppError from "@shared/errors/AppError";
 import {NoVersionOrUpdateDateColumnError, getCustomRepository} from 'typeorm';
 import UsersRepository from "../repositories/UsersRepository";
 import UserTokenRepository from "../typeorm/repositories/UserTokenRepository";
+import EtherealMail from "@config/mail/EtherealMail";
 
 interface IRequest{
   email: string;
@@ -20,7 +21,11 @@ class SendForgotPasswordEmailService {
     }
     const token = await userTokenRepository.generate(user.id);
     
-    console.log(token);
+   console.log(token);
+
+    await EtherealMail.sendMail({
+      to: email, body: `Solicitacao de redefinao de senha recebida : ${token?.token}`,
+    })
   }
 }
 
