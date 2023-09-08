@@ -1,6 +1,6 @@
 import AppError from "@shared/errors/AppError";
 import {NoVersionOrUpdateDateColumnError, getCustomRepository} from 'typeorm';
-import UsersRepository from "../repositories/UsersRepository";
+import UsersRepository from "../typeorm/repositories/UsersRepository";
 import {hash} from 'bcryptjs';
 import UserTokenRepository from "../typeorm/repositories/UserTokenRepository";
 import {isAfter, addHours} from "date-fns";

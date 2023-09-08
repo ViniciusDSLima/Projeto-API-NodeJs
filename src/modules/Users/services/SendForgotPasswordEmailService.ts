@@ -1,6 +1,6 @@
 import AppError from "@shared/errors/AppError";
 import {NoVersionOrUpdateDateColumnError, getCustomRepository} from 'typeorm';
-import UsersRepository from "../repositories/UsersRepository";
+import UsersRepository from "../typeorm/repositories/UsersRepository";
 import UserTokenRepository from "../typeorm/repositories/UserTokenRepository";
 import EtherealMail from "@config/mail/EtherealMail";
 
@@ -19,12 +19,23 @@ class SendForgotPasswordEmailService {
     if(!user){
         throw new AppError("User does not exists!");
     }
-    const token = await userTokenRepository.generate(user.id);
+    const {token} = await userTokenRepository.generate(user.id);
     
-   console.log(token);
 
     await EtherealMail.sendMail({
-      to: email, body: `Solicitacao de redefinao de senha recebida : ${token?.token}`,
+     to: {
+      name: user.name,
+      email: user.email,
+     },
+    
+    subject: "[API Vendas] Recuperacao de senha",
+    templateData: {
+      template : `Ola {{name}}: {{token}}`,
+      variables: {
+        name: user.name,
+        token,
+      }
+    }
     })
   }
 }
