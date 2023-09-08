@@ -27,6 +27,8 @@ class ResetPasswordService {
     if(!user){
         throw new AppError("user does not exists. ");
     }
+
+    console.log(userToken);
     
     const tokenCreatedAt = userToken.created_at;
 
@@ -37,6 +39,8 @@ class ResetPasswordService {
     }
 
     user.password = await hash(password, 8);
+
+    await userRepository.save(user);
 
   }
 }
