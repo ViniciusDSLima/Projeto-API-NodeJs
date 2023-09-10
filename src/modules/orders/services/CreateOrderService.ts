@@ -74,7 +74,7 @@ class CreateOrderService {
         product => ({
             id:product.product_id,
             quantity:
-                existisProducts.filter(p => p.id === product.id)[0].quantity - product.quantity,
+                existisProducts.filter(p => p.id === product.product_id)[0].quantity - product.quantity,
         })
     );
 
