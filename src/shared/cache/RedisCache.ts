@@ -1,8 +1,5 @@
 import Redis, { Redis as RedisClient } from 'ioredis';
 import cacheConfig from '@config/cache';
-import { promises } from 'dns';
-import { da } from 'date-fns/locale';
-import { parentPort } from 'worker_threads';
 
 export default class RedisCache{
     private client: RedisClient;
