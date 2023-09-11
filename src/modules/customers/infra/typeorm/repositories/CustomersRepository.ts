@@ -1,12 +1,17 @@
-import { EntityRepository, Repository } from "typeorm";
+import { Repository, getRepository } from "typeorm";
 import Customer from "../entities/Customer";
 import { ICustomerRepository } from "@modules/customers/domain/repositories/ICustomersRepository";
 
 
-@EntityRepository(Customer)
-class CustomersRepository extends Repository<Customer> implements ICustomerRepository {
-    public async findByName(name: string):  Promise<Customer | undefined>{
-        const customer = await this.findOne({
+class CustomersRepository  implements ICustomerRepository {
+    private ormRepository: Repository<Customer>;
+
+    constructor(){
+        this.ormRepository = getRepository(Customer);
+    }
+
+    public async findByName(name: string):  Promise<Customer|undefined>{
+        const customer = await this.ormRepository.findOne({
             where:{
                 name,
             },
@@ -15,7 +20,7 @@ class CustomersRepository extends Repository<Customer> implements ICustomerRepos
         return customer;
     }
     public async findById(id:string ):  Promise<Customer | undefined>{
-        const customer = await this.findOne({
+        const customer = await this.ormRepository.findOne({
             where:{
                 id,
             },
@@ -25,7 +30,7 @@ class CustomersRepository extends Repository<Customer> implements ICustomerRepos
     }
 
     public async findByEmail(email: string):  Promise<Customer | undefined>{
-        const customer = await this.findOne({
+        const customer = await this.ormRepository.findOne({
             where:{
                 email,
             },
