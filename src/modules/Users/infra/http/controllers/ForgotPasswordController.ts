@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import ListUserService from "../services/ListUserService";
-import CreateUserService from "../services/CreateUserService";
-import SendForgotPasswordEmailService from "../services/SendForgotPasswordEmailService";
+import ListUserService from "@modules/Users/services/ListUserService";
+import CreateUserService from "@modules/Users/services/CreateUserService";
+import SendForgotPasswordEmailService from "@modules/Users/services/SendForgotPasswordEmailService";
 
 export default class ForgotPasswordController{
     public async create(req: Request, res: Response): Promise<Response>{
