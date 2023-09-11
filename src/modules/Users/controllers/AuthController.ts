@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import CreateAuthService from "../services/CreateAuthService";
+import { instanceToInstance } from "class-transformer";
 
 export default class AuthController {
     public async create(req: Request, res: Response): Promise<Response> {
@@ -11,6 +12,6 @@ export default class AuthController {
             email, password
         });
 
-        return res.json(user);
+        return res.json(instanceToInstance(user));
     }
 }
