@@ -2,7 +2,7 @@ import Customer from "@modules/customers/typeorm/entities/Customer";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import Order from "./Order";
 import { OnDeleteType } from "typeorm/metadata/types/OnDeleteType";
-import Product from "@modules/products/typeorm/entities/Product";
+import Product from "@modules/products/infra/typeorm/entities/Product";
 
 @Entity("orders_products")
 class OrderProducts{

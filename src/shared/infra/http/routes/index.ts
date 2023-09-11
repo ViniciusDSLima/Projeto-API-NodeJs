@@ -3,7 +3,7 @@ import authRouter from "@modules/Users/routes/Auth.routes";
 import profileRouter from "@modules/Users/routes/Profile.routes";
 import usersRouter from "@modules/Users/routes/Users.routes";
 import passwordRouter from "@modules/Users/routes/password.route";
-import customerRouter from "@modules/customers/routes/customers.routes";
+import customerRouter from "@modules/customers/infra/http/routes/customers.routes";
 import ordersRouter from "@modules/orders/routes/Orders.routes";
 import productsRouter from "@modules/products/routes/products.roules";
 import { ro } from "date-fns/locale";

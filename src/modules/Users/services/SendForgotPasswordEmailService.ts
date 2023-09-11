@@ -1,7 +1,7 @@
 import AppError from "@shared/errors/AppError";
 import {NoVersionOrUpdateDateColumnError, getCustomRepository} from 'typeorm';
-import UsersRepository from "../typeorm/repositories/UsersRepository";
-import UserTokenRepository from "../typeorm/repositories/UserTokenRepository";
+import UsersRepository from "../infra/typeorm/repositories/UsersRepository";
+import UserTokenRepository from "../infra/typeorm/repositories/UserTokenRepository";
 import EtherealMail from "@config/mail/EtherealMail";
 import path from 'path';
 

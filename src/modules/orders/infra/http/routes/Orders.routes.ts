@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { celebrate, Joi, Segments } from "celebrate";
 import { join } from "path";
-import customerRouter from "@modules/customers/routes/customers.routes";
-import isAuthenticated from "@shared/http/middlewares/isAuthenticated";
+import customerRouter from "@modules/customers/infra/http/routes/customers.routes";
+import isAuthenticated from "@shared/infra/http/middlewares/isAuthenticated";
 import OrdersController from "../controller/OrderController";
-import { OrdersRepository } from "../typeorm/repositories/OrdersRepository";
+import { OrdersRepository } from "../../typeorm/repositories/OrdersRepository";
 
 
 const ordersRouter = Router();

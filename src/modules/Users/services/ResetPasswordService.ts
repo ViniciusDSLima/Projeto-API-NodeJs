@@ -1,8 +1,8 @@
 import AppError from "@shared/errors/AppError";
 import {NoVersionOrUpdateDateColumnError, getCustomRepository} from 'typeorm';
-import UsersRepository from "../typeorm/repositories/UsersRepository";
+import UsersRepository from "../infra/typeorm/repositories/UsersRepository";
 import {hash} from 'bcryptjs';
-import UserTokenRepository from "../typeorm/repositories/UserTokenRepository";
+import UserTokenRepository from "../infra/typeorm/repositories/UserTokenRepository";
 import {isAfter, addHours} from "date-fns";
 
 interface IRequest{

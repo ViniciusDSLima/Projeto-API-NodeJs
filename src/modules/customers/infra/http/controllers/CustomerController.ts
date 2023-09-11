@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import ListCustomersService from "../Services/ListCustomersService";
-import ShowCustomerService from "../Services/ShowCustomerService";
-import CreateCustomerService from "../Services/CreateCustomerService";
-import UpdateCustomerService from "../Services/UpdateCustomerService";
-import DeleteCustomerService from "../Services/DeleteCustomerService";
+import ListCustomersService from "@modules/customers/Services/ListCustomersService";
+import ShowCustomerService from "@modules/customers/Services/ShowCustomerService";
+import CreateCustomerService from "@modules/customers/Services/CreateCustomerService";
+import UpdateCustomerService from "@modules/customers/Services/UpdateCustomerService";
+import DeleteCustomerService from "@modules/customers/Services/DeleteCustomerService";
 
 
 export default class CustomerController{

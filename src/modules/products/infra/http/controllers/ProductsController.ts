@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import ListProductService from "../services/ListProductService";
-import ShowProductService from "../services/ShowProductService";
-import CreateProductService from "../services/CreateProductService";
-import Product from '../typeorm/entities/Product';
+import ListProductService from "@modules/products/services/ListProductService";
+import ShowProductService from "@modules/products/services/ShowProductService";
+import CreateProductService from "@modules/products/services/CreateProductService";
+import Product from "../../typeorm/entities/Product";
 import { promises } from 'dns';
 import { Repository } from 'typeorm';
-import UpdateProductService from "../services/UpdateProductService";
-import DeleteProductService from "../services/DeleteProductService";
+import UpdateProductService from "@modules/products/services/UpdateProductService";
+import DeleteProductService from "@modules/products/services/DeleteProductService";
 import { STATUS_CODES } from "http";
 
 

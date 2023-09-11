@@ -3,7 +3,7 @@ import { celebrate, Joi, Segments } from "celebrate";
 import UsersController from "../controllers/UsersController";
 import { join } from "path";
 import exp from "constants";
-import isAuthenticated from "../../../shared/http/middlewares/isAuthenticated";
+import isAuthenticated from "@shared/infra/http/middlewares/isAuthenticated";
 import AuthController from "../controllers/AuthController";
 import multer from "multer";
 import uploadConfig from '@config/upload'

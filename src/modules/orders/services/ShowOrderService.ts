@@ -1,11 +1,11 @@
 import { TreeChildren, getCustomRepository } from "typeorm";
 import AppError from "@shared/errors/AppError";
-import Order from "../typeorm/entities/Order";
-import { OrdersRepository } from "../typeorm/repositories/OrdersRepository";
+import Order from "../infra/typeorm/entities/Order";
+import { OrdersRepository } from "../infra/typeorm/repositories/OrdersRepository";
 import CustomersRepository from "@modules/customers/typeorm/repositories/CustomersRepository";
-import { ProductRepository } from "@modules/products/typeorm/repositories/ProductsRepositoy";
+import { ProductRepository } from "@modules/products/infra/typeorm/repositories/ProductsRepositoy";
 import { id, th } from "date-fns/locale";
-import Product from "@modules/products/typeorm/entities/Product";
+import Product from "@modules/products/infra/typeorm/entities/Product";
 
 
 
